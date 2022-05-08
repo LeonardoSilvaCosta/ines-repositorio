@@ -8,18 +8,11 @@ function initialState() {
 }
 
 export function Login() {
-  const [errorMessages, setErrorMessages] = useState({ name: "", message: "" });
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [values, setValues] = useState(initialState);
   const navigate = useNavigate();
   const user = { name: "Dora", password: "nosteamamos" };
   const errors = { name: "invalid username", password: "invalid password" };
-
-  //   const renderErrorMessage = (name: string) => {
-  //   name === errors.name && (
-  //     <div className="error">{errorMessages.message}</div>
-  //   );
-  // };
 
   function onChange(event: any) {
     const { value, name } = event.target;
@@ -48,16 +41,6 @@ export function Login() {
     } else {
       alert("Seu nome está incorreto!");
     }
-
-    // if (values.name) {
-    //   if (values.password !== user.password) {
-    //     setErrorMessages({ name: "password", message: errors.password });
-    //   } else {
-    //     setIsSubmitted(true);
-    //   }
-    // } else {
-    //   setErrorMessages({ name: "name", message: errors.name });
-    // }
   }
 
   return (
