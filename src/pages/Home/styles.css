@@ -1,0 +1,6 @@
+.text-container {
+  background-color: #112984;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
