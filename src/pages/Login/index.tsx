@@ -7,12 +7,8 @@ function initialState() {
   return { name: "", password: "" };
 }
 
-function initialErrorState() {
-  return { name: "", message: "" };
-}
-
 export function Login() {
-  const [errorMessages, setErrorMessages] = useState(initialErrorState);
+  const [errorMessages, setErrorMessages] = useState({ name: "", message: "" });
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [values, setValues] = useState(initialState);
   const navigate = useNavigate();
@@ -42,15 +38,15 @@ export function Login() {
       [name]: value,
     });
 
-    if(values.name === user.name) {
-      if(values.password !== user.password) {
-        alert('Não é a mamãe!');
+    if (values.name === user.name) {
+      if (values.password !== user.password) {
+        alert("Não é a mamãe!");
       } else {
         setIsSubmitted(true);
-        navigate("/Home")
+        navigate("/Home");
       }
     } else {
-      alert('Seu nome está incorreto!')
+      alert("Seu nome está incorreto!");
     }
 
     // if (values.name) {
@@ -62,7 +58,6 @@ export function Login() {
     // } else {
     //   setErrorMessages({ name: "name", message: errors.name });
     // }
-
   }
 
   return (
@@ -70,7 +65,7 @@ export function Login() {
       <img src="pag1.png" alt="imagem"></img>
       <form id="formulario" className="form-group" onSubmit={handleSubmit}>
         <>
-        {isSubmitted ? <div>User is sucessfully logged in</div> : ''}
+          {isSubmitted ? <div>User is sucessfully logged in</div> : ""}
           <label>Nome:</label>
           <Input
             id="insert"
@@ -81,18 +76,18 @@ export function Login() {
             onChange={onChange}
           />
 
-        <label>Senha:</label>
-        <Input
-          id="password"
-          name="password"
-          type="password"
-          placeholder="informe a sua senha"
-          value={values.password}
-          onChange={onChange}
-        />
-        <div className="button-content">
-          <Button name="Login" />
-        </div>
+          <label>Senha:</label>
+          <Input
+            id="password"
+            name="password"
+            type="password"
+            placeholder="informe a sua senha"
+            value={values.password}
+            onChange={onChange}
+          />
+          <div className="button-content">
+            <Button name="Login" />
+          </div>
         </>
       </form>
     </div>
