@@ -12,7 +12,6 @@ export function Login() {
   const [values, setValues] = useState(initialState);
   const navigate = useNavigate();
   const user = { name: "Dora", password: "nosteamamos" };
-  const errors = { name: "invalid username", password: "invalid password" };
 
   function onChange(event: any) {
     const { value, name } = event.target;
